@@ -21,7 +21,7 @@ import com.uuproject2.mks.salescycle.R;
 import java.util.Objects;
 
 public class AuthorityLoginActivity extends AppCompatActivity {
-    private EditText etId,etPassword;
+    private EditText etId;
     private Button btLogin;
     FirebaseDatabase mFirebaseDatabase;
     DatabaseReference mDatabaseReference;
@@ -31,7 +31,7 @@ public class AuthorityLoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_authority_login);
         etId= (EditText) findViewById(R.id.etAuthorityLoginId);
-        etPassword= (EditText) findViewById(R.id.etAuthirityPassword);
+       // etPassword= (EditText) findViewById(R.id.etAuthirityPassword);
         btLogin= (Button) findViewById(R.id.btAuthorityLogin);
        // mFirebaseDatabase=FirebaseDatabase.getInstance();
        // mDatabaseReference=mFirebaseDatabase.getReference().child("authority");
@@ -44,18 +44,21 @@ public class AuthorityLoginActivity extends AppCompatActivity {
                DatabaseReference ref=mDatabaseReference.child("authority").child(id);
               // DatabaseReference ref2=mDatabaseReference.child("authority").child(id).child("name");
 
+
                ref.addValueEventListener(new ValueEventListener() {
                    @Override
                    public void onDataChange(DataSnapshot dataSnapshot) {
                     //String name=dataSnapshot.getValue(String.class);
                       // String password=dataSnapshot.getValue(String.class);
+                       Toast.makeText(getApplicationContext(),"yes",Toast.LENGTH_LONG).show();
                        Authority authority=dataSnapshot.getValue(Authority.class);
                       // String inputId=etId.getText().toString().trim();
                      // String inputPassword=etPassword.getText().toString().trim();
                       // String dbId=authority.getId();
+
                        String dbPassword=authority.getPassword();
                        String dbCatagory=authority.getCatagory();
-                     //Toast.makeText(getApplicationContext(),"catagory"+dbCatagory+"sf"+inputPassword,Toast.LENGTH_LONG).show();
+                   // Toast.makeText(getApplicationContext(),"catagory"+dbCatagory+"sf"+dbPassword,Toast.LENGTH_LONG).show();
                        if(Objects.equals("salescycle",dbPassword)){
                            if(Objects.equals(dbCatagory, "Delivery Man")){
                                Toast.makeText(getApplicationContext(),"Login as a Delivery Man",Toast.LENGTH_LONG).show();

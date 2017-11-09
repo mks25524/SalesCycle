@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/etUpdateProductName"
+        android:hint="Product Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/etUpdateProductPrice"
+        android:hint="Product price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etUpdateProductName"/>
+    <EditText
+        android:id="@+id/etUpdateProductQuantity"
+        android:hint="Product quantity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etUpdateProductPrice"/>
+    <Button
+        android:id="@+id/btUpdateProcuctDescription"
+        android:text="Update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btDeleteProductDescription"
+        android:layout_alignBottom="@+id/btDeleteProductDescription"
+        android:layout_alignParentStart="true" />
+    <Button
+        android:id="@+id/btDeleteProductDescription"
+        android:text="Delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="46dp"
+        android:layout_below="@+id/etUpdateProductQuantity"
+        android:layout_alignParentEnd="true" />
+
+
+</RelativeLayout>

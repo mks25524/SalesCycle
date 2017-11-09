@@ -27,7 +27,9 @@
         <activity android:name=".Comp.salesmanager.ProfileSalesManagerActivity" />
         <activity android:name=".Comp.salesman.ProfileSalesManActivity" />
         <activity android:name=".Comp.deleverman.ProfileDelevermanActivity" />
-        <activity android:name=".Comp.company.AuthorityLoginActivity"></activity>
+        <activity android:name=".Comp.company.AuthorityLoginActivity" />
+        <activity android:name=".Comp.salesmanager.AddProductActivity" />
+        <activity android:name=".Comp.salesmanager.ShowProductActivity"></activity>
     </application>
 
 </manifest>

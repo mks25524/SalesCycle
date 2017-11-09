@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.uuproject2.mks.salescycle.Comp.salesmanager.ShowProductActivity;
 import com.uuproject2.mks.salescycle.R;
 
 public class ProfileActivityCompany extends AppCompatActivity
@@ -87,7 +88,9 @@ public class ProfileActivityCompany extends AppCompatActivity
 
             Intent intent=new Intent(getApplicationContext(),AddAuthorityActivity.class);
             startActivity(intent);
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.Products) {
+            Intent intent=new Intent(getApplicationContext(),ShowProductActivity.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_slideshow) {
 

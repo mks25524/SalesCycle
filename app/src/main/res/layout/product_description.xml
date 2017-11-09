@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/productName"
+        android:text="Product Name:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_marginTop="44dp"
+
+        android:layout_alignStart="@+id/productQuantity" />
+    <TextView
+        android:id="@+id/etProductName"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/productName"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="92dp"
+        android:layout_alignTop="@+id/productName" />
+    <TextView
+        android:id="@+id/productQuantity"
+        android:text="Quantity:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_marginTop="23dp"
+        android:layout_below="@+id/productName"
+        android:layout_alignStart="@+id/productPrice" />
+    <TextView
+        android:id="@+id/etProductQuantitys"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/productQuantity"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="92dp"
+        android:layout_alignTop="@+id/productQuantity" />
+    <TextView
+        android:id="@+id/productPrice"
+        android:text="Price:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_marginTop="24dp"
+        android:layout_below="@+id/productQuantity"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="43dp" />
+    <TextView
+        android:id="@+id/etProductPrices"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/productPrice"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="92dp"
+        android:layout_alignTop="@+id/productPrice"
+        />
+    <Button
+        android:id="@+id/btClose"
+        android:text="Close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/productPrice"/>
+
+
+
+</RelativeLayout>

@@ -7,9 +7,9 @@
             android:icon="@drawable/ic_menu_camera"
             android:title="Add Authority" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:id="@+id/Products"
+            android:icon="@mipmap/ic_launcher"
+            android:title="Products" />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
