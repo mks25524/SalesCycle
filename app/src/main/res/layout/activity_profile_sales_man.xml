@@ -6,10 +6,11 @@
     android:layout_height="match_parent"
     tools:context="com.uuproject2.mks.salescycle.Comp.salesman.ProfileSalesManActivity">
 
-    <ImageButton
-        android:id="@+id/imbts"
-
-        android:layout_width="128dp"
-        android:layout_height="128dp" />
+    <ImageView
+        android:id="@+id/imbtSalesManSales"
+        android:layout_width="100dp"
+        android:layout_height="128dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/sales"/>
 
 </RelativeLayout>

@@ -134,6 +134,8 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
                             //adding an upload to firebase database
 
                             mDatabase.child(uploadId).setValue(upload);
+                            //blank again
+                            editTextName.setText("");
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {

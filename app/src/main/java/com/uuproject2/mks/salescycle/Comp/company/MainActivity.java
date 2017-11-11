@@ -14,6 +14,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.uuproject2.mks.salescycle.Comp.customer.CustomerLogin;
 import com.uuproject2.mks.salescycle.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         editTextPassword= (EditText) findViewById(R.id.editTextPassword);
         findViewById(R.id.textViewSignupp).setOnClickListener(this);
         findViewById(R.id.textViewSignupAuthority).setOnClickListener(this);
+        findViewById(R.id.textViewCustomer).setOnClickListener(this);
         findViewById(R.id.buttonLogin).setOnClickListener(this);
         mAuth=FirebaseAuth.getInstance();
 
@@ -89,6 +91,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.textViewSignupAuthority:
                 startActivity(new Intent(this,AuthorityLoginActivity.class));
+                break;
+            case R.id.textViewCustomer:
+                startActivity(new Intent(this,CustomerLogin.class));
+
         }
 
 

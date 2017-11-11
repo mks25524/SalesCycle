@@ -50,7 +50,7 @@ public class AuthorityLoginActivity extends AppCompatActivity {
                    public void onDataChange(DataSnapshot dataSnapshot) {
                     //String name=dataSnapshot.getValue(String.class);
                       // String password=dataSnapshot.getValue(String.class);
-                       Toast.makeText(getApplicationContext(),"yes",Toast.LENGTH_LONG).show();
+                      // Toast.makeText(getApplicationContext(),"yes",Toast.LENGTH_LONG).show();
                        Authority authority=dataSnapshot.getValue(Authority.class);
                       // String inputId=etId.getText().toString().trim();
                      // String inputPassword=etPassword.getText().toString().trim();

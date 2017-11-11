@@ -29,7 +29,12 @@
         <activity android:name=".Comp.deleverman.ProfileDelevermanActivity" />
         <activity android:name=".Comp.company.AuthorityLoginActivity" />
         <activity android:name=".Comp.salesmanager.AddProductActivity" />
-        <activity android:name=".Comp.salesmanager.ShowProductActivity"></activity>
+        <activity android:name=".Comp.salesmanager.ShowProductActivity" />
+        <activity android:name=".Comp.salesmanager.AddCustomerActivity" />
+        <activity android:name=".Comp.customer.CustomerLogin" />
+        <activity android:name=".Comp.customer.CustomerProfileActivity" />
+        <activity android:name=".Comp.salesman.SalesBySalesManActivitiy" />
+        <activity android:name=".Comp.salesman.ShowSalesManProductForSale"></activity>
     </application>
 
 </manifest>

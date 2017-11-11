@@ -8,12 +8,19 @@
 
   <ImageView
       android:id="@+id/imbtProduct"
-      android:layout_width="128dp"
+      android:layout_width="100dp"
       android:layout_height="128dp"
       android:scaleType="fitXY"
-      android:src="@mipmap/ic_launcher"
+      android:src="@mipmap/ic_launcher"/>
+  <ImageView
+      android:id="@+id/imCustomer"
+      android:layout_width="100dp"
+      android:layout_height="128dp"
+      android:scaleType="fitXY"
+      android:src="@mipmap/customer"
 
 
-
-       />
+      android:layout_marginStart="16dp"
+      android:layout_alignParentTop="true"
+      android:layout_toEndOf="@+id/imbtProduct" />
 </RelativeLayout>

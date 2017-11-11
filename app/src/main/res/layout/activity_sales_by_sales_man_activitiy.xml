@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.uuproject2.mks.salescycle.Comp.salesman.SalesBySalesManActivitiy">
+
+
+ <Button
+     android:id="@+id/btSetDate"
+     android:text="Set Date"
+
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/tvDateView"
+        android:hint="10/12/93"
+        android:layout_width="160dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="50dp"
+        android:layout_alignBottom="@+id/btSetDate"
+        android:layout_toEndOf="@+id/btSetDate" />
+    <DatePicker
+        android:id="@+id/datePicker1"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="13dp"
+        android:layout_below="@+id/etSalesCustomerId"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="22dp"
+        android:layout_alignStart="@+id/tvDateView" />
+
+    <EditText
+    android:id="@+id/etSalesCustomerId"
+    android:hint="Customer Id"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+        android:layout_below="@+id/btSetDate"
+    />
+    <ImageView
+        android:id="@+id/imProductSale"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@mipmap/ic_launcher"
+        android:layout_below="@id/etSalesCustomerId"/>
+
+</RelativeLayout>

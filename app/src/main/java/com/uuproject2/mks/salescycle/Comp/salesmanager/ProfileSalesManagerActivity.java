@@ -17,8 +17,8 @@ import com.uuproject2.mks.salescycle.R;
 
 import java.net.URL;
 
-public class ProfileSalesManagerActivity extends AppCompatActivity{
-    ImageView imgbtProducts;
+public class ProfileSalesManagerActivity extends AppCompatActivity implements View.OnClickListener{
+    ImageView imgbtProducts,customer;
 
 
     @Override
@@ -26,25 +26,29 @@ public class ProfileSalesManagerActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_sales_manager);
      imgbtProducts= (ImageView) findViewById(R.id.imbtProduct);
+        customer= (ImageView) findViewById(R.id.imCustomer);
 
-
-
-      imgbtProducts.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View view) {
-              startActivity(new Intent(getApplication(),AddProductActivity.class));
-          }
-      });
-       // findViewById(R.id.imbtProduct).setOnClickListener(this);
+imgbtProducts.setOnClickListener(this);
+        customer.setOnClickListener(this);
+//        imgbtProducts.setOnClickListener(new View.OnClickListener() {
+//          @Override
+//          public void onClick(View view) {
+//              startActivity(new Intent(getApplication(),AddProductActivity.class));
+//          }
+//      });
+//       // findViewById(R.id.imbtProduct).setOnClickListener(this);
     }
 
 
-//    @Override
-//    public void onClick(View view) {
-//        switch (view.getId()){
-//            case R.id.imbtProduct:
-//                startActivity(new Intent(getApplicationContext(),AddProductActivity.class));
-//                break;
-//        }
-//    }
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.imbtProduct:
+                startActivity(new Intent(getApplicationContext(),AddProductActivity.class));
+                break;
+            case R.id.imCustomer:
+                startActivity(new Intent(getApplicationContext(),AddCustomerActivity.class));
+                break;
+        }
+    }
 }

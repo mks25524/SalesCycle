@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.uuproject2.mks.salescycle.Comp.salesmanager.AddCustomerActivity">
+
+    <EditText
+        android:id="@+id/etAddCustomerName"
+        android:hint="Name:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/etAddCustomerShopName"
+        android:hint="shop name:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etAddCustomerName"/>
+    <EditText
+        android:id="@+id/etAddCustomerMobile"
+        android:hint="Mobile No:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etAddCustomerShopName"/>
+    <EditText
+        android:id="@+id/etAddCustomerAddress"
+        android:hint="Address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etAddCustomerMobile"/>
+    <EditText
+        android:id="@+id/etAddCustomerPassword"
+        android:hint="password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etAddCustomerAddress"/>
+    <Button
+        android:id="@+id/btAddCustomer"
+        android:text="Add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etAddCustomerPassword"/>
+
+
+
+</RelativeLayout>

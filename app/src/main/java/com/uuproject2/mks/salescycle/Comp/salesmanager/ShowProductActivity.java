@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -59,15 +60,21 @@ public class ShowProductActivity extends AppCompatActivity {
             @Override
             public void onClick(View view, int position) {
               // showProductDetails();
+
                 AlertDialog.Builder builder=new AlertDialog.Builder(ShowProductActivity.this);
+
                 LayoutInflater layoutInflater=getLayoutInflater();
                 View dialogView=layoutInflater.inflate(R.layout.product_description,null);
                 builder.setView(dialogView);
                 TextView etName=(TextView)dialogView.findViewById(R.id.etProductName);
                 TextView etPrice=(TextView)dialogView.findViewById(R.id.etProductPrices);
                 TextView etQuantity=(TextView)dialogView.findViewById(R.id.etProductQuantitys);
+
+
+
                  Button btClose=(Button)dialogView.findViewById(R.id.btClose);
                // TextView tv=(TextView)dialogView.findViewById(R.id.productDes);
+
 
                 builder.setTitle("Product Details");
                 final AlertDialog alertDialog=builder.create();
