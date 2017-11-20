@@ -7,10 +7,12 @@ package com.uuproject2.mks.salescycle.Comp.salesman;
 public class InitialSalesCreate {
     private String date;
     private String id;
+    private String salesManId;
 
-    public InitialSalesCreate(String date, String id) {
+    public InitialSalesCreate(String date, String id,String salesManId) {
         this.date = date;
         this.id = id;
+        this.salesManId=salesManId;
     }
     public InitialSalesCreate(){}
 
@@ -20,5 +22,9 @@ public class InitialSalesCreate {
 
     public String getId() {
         return id;
+    }
+
+    public String getSalesManId() {
+        return salesManId;
     }
 }

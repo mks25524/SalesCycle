@@ -24,7 +24,8 @@
 
         android:layout_alignBaseline="@+id/tvShowTotalprice"
         android:layout_alignBottom="@+id/tvShowTotalprice"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:id="@+id/textView2" />
     <TextView
         android:id="@+id/tvShowTotalprice"
         android:hint="Total Price"
@@ -36,4 +37,12 @@
         android:layout_below="@+id/lvPreviewDialog"
         android:layout_alignEnd="@+id/lvPreviewDialog"
         android:layout_marginTop="14dp" />
+
+    <Button
+        android:id="@+id/btOk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ok"
+        android:layout_below="@+id/tvShowTotalprice"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

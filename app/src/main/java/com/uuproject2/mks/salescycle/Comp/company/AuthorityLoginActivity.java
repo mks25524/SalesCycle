@@ -1,6 +1,8 @@
 package com.uuproject2.mks.salescycle.Comp.company;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -35,6 +37,12 @@ public class AuthorityLoginActivity extends AppCompatActivity {
         btLogin= (Button) findViewById(R.id.btAuthorityLogin);
        // mFirebaseDatabase=FirebaseDatabase.getInstance();
        // mDatabaseReference=mFirebaseDatabase.getReference().child("authority");
+        //store id to shared preference for passing salesBySalesManActivity
+        String pt=etId.getText().toString().trim();
+        SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(this);
+        final SharedPreferences.Editor editor=prefs.edit();
+//        editor.putString("id",pt);
+//        editor.apply();
        btLogin.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
@@ -43,6 +51,8 @@ public class AuthorityLoginActivity extends AppCompatActivity {
                mDatabaseReference=FirebaseDatabase.getInstance().getReference();
                DatabaseReference ref=mDatabaseReference.child("authority").child(id);
               // DatabaseReference ref2=mDatabaseReference.child("authority").child(id).child("name");
+editor.putString("id",id);
+               editor.apply();
 
 
                ref.addValueEventListener(new ValueEventListener() {
@@ -58,19 +68,23 @@ public class AuthorityLoginActivity extends AppCompatActivity {
 
                        String dbPassword=authority.getPassword();
                        String dbCatagory=authority.getCatagory();
+                       String name=authority.getName();
                    // Toast.makeText(getApplicationContext(),"catagory"+dbCatagory+"sf"+dbPassword,Toast.LENGTH_LONG).show();
                        if(Objects.equals("salescycle",dbPassword)){
                            if(Objects.equals(dbCatagory, "Delivery Man")){
                                Toast.makeText(getApplicationContext(),"Login as a Delivery Man",Toast.LENGTH_LONG).show();
                                Intent intent=new Intent(getApplicationContext(),ProfileDelevermanActivity.class);
+                               intent.putExtra("name",name);
                                startActivity(intent);
                            }else  if(Objects.equals(dbCatagory, "Sales Manager")){
                                Toast.makeText(getApplicationContext(),"Login as Sales Manager",Toast.LENGTH_LONG).show();
                                Intent intent=new Intent(getApplicationContext(),ProfileSalesManagerActivity.class);
+                               intent.putExtra("name",name);
                                startActivity(intent);
                            }else  if(Objects.equals(dbCatagory, "Sales Man")){
                                Toast.makeText(getApplicationContext(),"Login as a Sales Man",Toast.LENGTH_LONG).show();
                                Intent intent=new Intent(getApplicationContext(),ProfileSalesManActivity.class);
+                               intent.putExtra("name",name);
                                startActivity(intent);
                            }
                        }

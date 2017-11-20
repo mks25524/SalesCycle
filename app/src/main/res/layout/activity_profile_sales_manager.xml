@@ -11,7 +11,7 @@
       android:layout_width="100dp"
       android:layout_height="128dp"
       android:scaleType="fitXY"
-      android:src="@mipmap/ic_launcher"/>
+      android:src="@mipmap/product"/>
   <ImageView
       android:id="@+id/imCustomer"
       android:layout_width="100dp"
@@ -23,4 +23,13 @@
       android:layout_marginStart="16dp"
       android:layout_alignParentTop="true"
       android:layout_toEndOf="@+id/imbtProduct" />
+  <ImageView
+      android:id="@+id/logout"
+      android:layout_width="100dp"
+      android:layout_height="128dp"
+      android:scaleType="fitXY"
+      android:src="@mipmap/logout"
+      android:layout_alignParentTop="true"
+      android:layout_toEndOf="@+id/imCustomer"
+      android:layout_marginStart="12dp" />
 </RelativeLayout>

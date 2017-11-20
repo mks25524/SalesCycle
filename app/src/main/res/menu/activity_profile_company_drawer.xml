@@ -4,16 +4,16 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/addAuthority"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@mipmap/customer"
             android:title="Add Authority" />
         <item
             android:id="@+id/Products"
-            android:icon="@mipmap/ic_launcher"
+            android:icon="@mipmap/product"
             android:title="Products" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:id="@+id/logout"
+            android:icon="@mipmap/logout"
+            android:title="Logout" />
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_manage"

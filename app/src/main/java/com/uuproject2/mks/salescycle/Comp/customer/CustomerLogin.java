@@ -50,6 +50,8 @@ public class CustomerLogin extends AppCompatActivity {
                         if(Objects.equals("customer",customerPassword)){
                             Toast.makeText(getApplicationContext(),"Password match"+customerName,Toast.LENGTH_LONG).show();
                             Intent intent=new Intent(getApplicationContext(),CustomerProfileActivity.class);
+                            intent.putExtra("name",customerName);
+                            intent.putExtra("id",customerMobile);
                             startActivity(intent);
                         }
                     }

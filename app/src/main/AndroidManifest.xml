@@ -34,7 +34,7 @@
         <activity android:name=".Comp.customer.CustomerLogin" />
         <activity android:name=".Comp.customer.CustomerProfileActivity" />
         <activity android:name=".Comp.salesman.SalesBySalesManActivitiy" />
-        <activity android:name=".Comp.salesman.ShowSalesManProductForSale"></activity>
+        <activity android:name=".Comp.salesman.ShowSalesManProductForSale" />
     </application>
 
 </manifest>

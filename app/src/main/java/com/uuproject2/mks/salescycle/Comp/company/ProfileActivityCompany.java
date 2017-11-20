@@ -1,9 +1,13 @@
 package com.uuproject2.mks.salescycle.Comp.company;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.ActionBar;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,12 +17,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.uuproject2.mks.salescycle.Comp.salesmanager.ShowProductActivity;
 import com.uuproject2.mks.salescycle.R;
 
 public class ProfileActivityCompany extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +50,25 @@ public class ProfileActivityCompany extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        //for actionbar title
+
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowCustomEnabled(true);
+        actionBar.setDisplayShowTitleEnabled(false);
+
+
+        //actionBar.setIcon(R.mipmap.customer);
+
+        LayoutInflater inflator = (LayoutInflater) this .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View v = inflator.inflate(R.layout.show_actionbar_title, null);
+        tv=(TextView)v.findViewById(R.id.titleAction);
+        tv.setText("UU Sales Cycle");
+        tv.setTextColor(Color.WHITE);
+
+
+        actionBar.setCustomView(v);
+
     }
 
     @Override
@@ -92,7 +117,9 @@ public class ProfileActivityCompany extends AppCompatActivity
             Intent intent=new Intent(getApplicationContext(),ShowProductActivity.class);
             startActivity(intent);
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.logout) {
+            Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_manage) {
 

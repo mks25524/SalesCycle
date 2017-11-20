@@ -41,7 +41,7 @@ public class ShowSalesManProductForSale extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
 
     //database reference
-    private DatabaseReference mDatabase;
+    private DatabaseReference mDatabase,customerDatabase;
 
     //progress dialog
     private ProgressDialog progressDialog;
@@ -83,6 +83,8 @@ public class ShowSalesManProductForSale extends AppCompatActivity {
                 Bundle bundle=getIntent().getExtras();
                 final String date=bundle.getString("date");
                 final String id=bundle.getString("id");
+                final String year=bundle.getString("year");
+                final String month=bundle.getString("month");
 
 
                 Toast.makeText(getApplicationContext(),"",Toast.LENGTH_LONG).show();
@@ -115,9 +117,23 @@ public class ShowSalesManProductForSale extends AppCompatActivity {
                         String totalPrice=tvCalculatePrice.getText().toString().trim();
                         int pval=Integer.parseInt(totalPrice);
                         finalPrice=finalPrice+pval;
-                        mDatabase=FirebaseDatabase.getInstance().getReference("sales").child(date).child(id).child("products").child(productName);
+                        mDatabase=FirebaseDatabase.getInstance().getReference("sales").child(year).child(month).child(date).child(id).child("products").child(productName);
+                        customerDatabase=FirebaseDatabase.getInstance().getReference("customerSalesHistory").child(id).child(year).child(month).child(date).child("products").child(productName);
+
                         FinalSalesCreate salesCreate=new FinalSalesCreate(howMuch,totalPrice);
                         mDatabase.setValue(salesCreate);
+                        customerDatabase.setValue(salesCreate);
+                        customerDatabase=FirebaseDatabase.getInstance().getReference("customerSalesHistory").child(id).child(year).child(month).child(date);
+
+                        mDatabase=FirebaseDatabase.getInstance().getReference("sales").child(year).child(month).child(date).child(id);
+
+
+                       // FinalPriceAddToDatabase finalPriceAddToDatabase=new FinalPriceAddToDatabase(showPrice);
+                        final String showPrice=Integer.toString(finalPrice);
+                        FinalPriceAddToDatabase finalPriceAddToDatabase=new FinalPriceAddToDatabase(showPrice);
+                        mDatabase.child("total Price").setValue(finalPriceAddToDatabase);
+
+                        customerDatabase.child("total price").setValue(finalPriceAddToDatabase);
                         String totalVal=productName+"   "+howMuch+"   "+"   "+totalPrice;
                         list.add(totalVal);
                         Toast.makeText(getApplicationContext(),productName+" Is added to your bucket",Toast.LENGTH_LONG).show();
@@ -133,17 +149,33 @@ public class ShowSalesManProductForSale extends AppCompatActivity {
 
                         AlertDialog.Builder builder=new AlertDialog.Builder(ShowSalesManProductForSale.this);
                         LayoutInflater layoutInflater=getLayoutInflater();
-                        View dialogView=layoutInflater.inflate(R.layout.preview_listview_dialog,null);
+                        final View dialogView=layoutInflater.inflate(R.layout.preview_listview_dialog,null);
+
                         builder.setView(dialogView);
                         builder.setTitle("Sales List");
                         final AlertDialog alertDialog=builder.create();
                         ListView listView=(ListView)dialogView.findViewById(R.id.lvPreviewDialog);
                         TextView textView=(TextView)dialogView.findViewById(R.id.tvShowTotalprice);
+                        Button btOk=(Button)dialogView.findViewById(R.id.btOk);
                         ArrayAdapter<String>arrayAdapter=new ArrayAdapter<String>(ShowSalesManProductForSale.this, android.R.layout.simple_list_item_1,list);
                         listView.setAdapter(arrayAdapter);
-                        String showPrice=Integer.toString(finalPrice);
+                        final String showPrice=Integer.toString(finalPrice);
                         textView.setText(showPrice);
                         alertDialog.show();
+                        btOk.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                //only add total price into database
+                                mDatabase=FirebaseDatabase.getInstance().getReference("sales").child(year).child(month).child(date).child(id);
+
+
+//                                FinalPriceAddToDatabase finalPriceAddToDatabase=new FinalPriceAddToDatabase(showPrice);
+//                                mDatabase.child("total Price").setValue(finalPriceAddToDatabase);
+                                alertDialog.dismiss();
+
+
+                            }
+                        });
                     }
                 });
 
