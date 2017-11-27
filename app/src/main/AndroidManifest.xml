@@ -35,6 +35,8 @@
         <activity android:name=".Comp.customer.CustomerProfileActivity" />
         <activity android:name=".Comp.salesman.SalesBySalesManActivitiy" />
         <activity android:name=".Comp.salesman.ShowSalesManProductForSale" />
+        <activity android:name=".Comp.customer.CustomerPurchaseActivity" />
+        <activity android:name=".Comp.customer.ShowProductForCustomerPurchase"></activity>
     </application>
 
 </manifest>

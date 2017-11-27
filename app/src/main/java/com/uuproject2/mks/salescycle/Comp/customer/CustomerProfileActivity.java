@@ -31,20 +31,28 @@ import com.uuproject2.mks.salescycle.R;
 import java.util.ArrayList;
 
 public class CustomerProfileActivity extends AppCompatActivity {
- TextView tv;
-    ImageView imPurchaseHistory;
-    DatePicker picker;
-    ArrayList<String>list=new ArrayList<>();
-    private DatabaseReference mDatabase;
-    String totalPrices;
+
+    ImageView imPurchaseHistory,purchaseCustomer;
+
 
     public static final String[] MONTHS = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_profile);
+        purchaseCustomer= (ImageView) findViewById(R.id.purchaseCustomer);
+        //get data from customer login
 
-
+purchaseCustomer.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        Bundle bundle=getIntent().getExtras();
+        String id=bundle.getString("id");
+        Intent intent=new Intent(getApplicationContext(),CustomerPurchaseActivity.class);
+        intent.putExtra("id",id);
+        startActivity(intent);
+    }
+});
 
     }
 

@@ -12,5 +12,12 @@
         android:layout_width="100dp"
         android:layout_height="128dp"
         android:scaleType="fitXY"/>
+    <ImageView
+        android:id="@+id/purchaseCustomer"
+        android:layout_width="100dp"
+        android:layout_height="128dp"
+        android:src="@mipmap/purchase"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/imPurchaseHistory" />
 
 </RelativeLayout>
