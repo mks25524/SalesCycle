@@ -121,7 +121,10 @@ public class ProfileActivityCompany extends AppCompatActivity
             Intent intent=new Intent(getApplicationContext(),MainActivity.class);
             startActivity(intent);
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.payments) {
+            Intent intent=new Intent(getApplicationContext(),ShowTransactionActivity.class);
+            startActivity(intent);
+
 
         } else if (id == R.id.nav_share) {
 

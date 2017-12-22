@@ -7,10 +7,12 @@ package com.uuproject2.mks.salescycle.Comp.customer;
 public class CustomerPurchaseModel {
     private String transactionId;
     private String totalBil;
+    private String paymentStatus;
 
-    public CustomerPurchaseModel(String transactionId, String totalBil) {
+    public CustomerPurchaseModel(String transactionId, String totalBil,String paymentStatus) {
         this.transactionId = transactionId;
         this.totalBil = totalBil;
+        this.paymentStatus=paymentStatus;
     }
     public CustomerPurchaseModel(){}
 
@@ -20,5 +22,9 @@ public class CustomerPurchaseModel {
 
     public String getTotalBil() {
         return totalBil;
+    }
+
+    public String getPaymentStatus() {
+        return paymentStatus;
     }
 }

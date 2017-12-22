@@ -22,6 +22,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.uuproject2.mks.salescycle.Comp.model.NewSalesModel;
 import com.uuproject2.mks.salescycle.Comp.salesmanager.Constants;
 import com.uuproject2.mks.salescycle.Comp.salesmanager.MyAdapter;
 import com.uuproject2.mks.salescycle.Comp.salesmanager.Product;
@@ -41,7 +42,7 @@ public class ShowSalesManProductForSale extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
 
     //database reference
-    private DatabaseReference mDatabase,customerDatabase;
+    private DatabaseReference mDatabase,customerDatabase,newSales;
 
     //progress dialog
     private ProgressDialog progressDialog;
@@ -51,6 +52,7 @@ public class ShowSalesManProductForSale extends AppCompatActivity {
     private MyAdapter myAdapter;
     ArrayList<String>list=new ArrayList<>();
     int finalPrice=0;
+    //for new sale
 
 
     @Override
@@ -85,6 +87,7 @@ public class ShowSalesManProductForSale extends AppCompatActivity {
                 final String id=bundle.getString("id");
                 final String year=bundle.getString("year");
                 final String month=bundle.getString("month");
+               // final String finalDate=date+"-"+month+"-"+year;//for newsale
 
 
                 Toast.makeText(getApplicationContext(),"",Toast.LENGTH_LONG).show();
@@ -135,6 +138,8 @@ public class ShowSalesManProductForSale extends AppCompatActivity {
 
                         customerDatabase.child("total price").setValue(finalPriceAddToDatabase);
                         String totalVal=productName+"   "+howMuch+"   "+"   "+totalPrice;
+
+
                         list.add(totalVal);
                         Toast.makeText(getApplicationContext(),productName+" Is added to your bucket",Toast.LENGTH_LONG).show();
 
@@ -157,11 +162,14 @@ public class ShowSalesManProductForSale extends AppCompatActivity {
                         ListView listView=(ListView)dialogView.findViewById(R.id.lvPreviewDialog);
                         TextView textView=(TextView)dialogView.findViewById(R.id.tvShowTotalprice);
                         Button btOk=(Button)dialogView.findViewById(R.id.btOk);
-                        ArrayAdapter<String>arrayAdapter=new ArrayAdapter<String>(ShowSalesManProductForSale.this, android.R.layout.simple_list_item_1,list);
+                        Button btDone=(Button)dialogView.findViewById(R.id.btDone);
+                        final ArrayAdapter<String>arrayAdapter=new ArrayAdapter<String>(ShowSalesManProductForSale.this, android.R.layout.simple_list_item_1,list);
                         listView.setAdapter(arrayAdapter);
                         final String showPrice=Integer.toString(finalPrice);
                         textView.setText(showPrice);
                         alertDialog.show();
+                        //String s[]=arrayAdapter.getItem(0).split("   ");
+                        //Toast.makeText(getApplicationContext()," sjf"+s[2],Toast.LENGTH_LONG).show();
                         btOk.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -174,6 +182,43 @@ public class ShowSalesManProductForSale extends AppCompatActivity {
                                 alertDialog.dismiss();
 
 
+                            }
+                        });
+                        btDone.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                //for newsale
+                                String Orange="0",Red_Apple="0",China_Orange="0",Dragon="0",Green_Apple="0",Green_Grapes="0",Guava="0",Nashpati="0",Red_Grapes="0";
+                               // Toast.makeText(getApplicationContext(),"yes"+list.size(),Toast.LENGTH_LONG).show();
+                                for(int i=0;i<list.size();i++){
+                                    String []s=arrayAdapter.getItem(i).split(" ");
+                                    if(s[0].equals("Orange")){
+                                        Orange=arrayAdapter.getItem(i);
+                                    } if(s[0].equals("Red")&&s[1].equals("Apple")){
+                                        Red_Apple=arrayAdapter.getItem(i);
+                                    }if(s[0].equals("China")&& s[1].equals("Orange")){
+                                        China_Orange=arrayAdapter.getItem(i);
+                                    } if(s[0].equals("Dragon")&& s[1].equals("Fruits")){
+                                        Dragon=arrayAdapter.getItem(i);
+                                    } if(s[0].equals("Green")&& s[0].equals("Apple")){
+                                        Green_Apple=arrayAdapter.getItem(i);
+                                    } if(s[0].equals("Green")&& s[1].equals("Grapes")){
+                                        Green_Grapes=arrayAdapter.getItem(i);
+                                    } if(s[0].equals("Guava")){
+                                        Guava=arrayAdapter.getItem(i);
+                                    } if(s[0].equals("Nashpati")){
+                                       Nashpati=arrayAdapter.getItem(i);
+                                    } if(s[0].equals("Red")&& s[1].equals("Grapes")){
+                                        Red_Grapes=arrayAdapter.getItem(i);
+                                    }
+                              }
+//                              Red_Apple=arrayAdapter.getItem(0);
+//                                String ss[]=Red_Apple.split(" ");
+//                                Toast.makeText(getApplicationContext(),"yes"+ss[1],Toast.LENGTH_LONG).show();
+
+                                newSales=FirebaseDatabase.getInstance().getReference("newSales").child(date);
+                                NewSalesModel model=new NewSalesModel(id,date,Orange,Red_Apple,China_Orange,Dragon,Green_Apple,Guava,Nashpati,Red_Grapes,Green_Grapes,finalPrice);
+                                newSales.child(id).setValue(model);
                             }
                         });
                     }

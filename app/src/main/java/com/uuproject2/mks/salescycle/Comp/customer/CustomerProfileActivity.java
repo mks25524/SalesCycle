@@ -41,6 +41,7 @@ public class CustomerProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_profile);
         purchaseCustomer= (ImageView) findViewById(R.id.purchaseCustomer);
+        imPurchaseHistory= (ImageView) findViewById(R.id.imPurchaseHistory);
         //get data from customer login
 
 purchaseCustomer.setOnClickListener(new View.OnClickListener() {

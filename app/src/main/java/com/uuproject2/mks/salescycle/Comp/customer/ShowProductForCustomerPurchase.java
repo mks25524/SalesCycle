@@ -43,7 +43,7 @@ public class ShowProductForCustomerPurchase extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
 
     //database reference
-    private DatabaseReference mDatabase,customerDatabase,tranxDtababase;
+    private DatabaseReference mDatabase,customerDatabase,tranxDtababase,tranxDatabaseTwo;
 
     //progress dialog
     private ProgressDialog progressDialog;
@@ -193,12 +193,12 @@ public class ShowProductForCustomerPurchase extends AppCompatActivity {
                     public void onClick(View view) {
                         AlertDialog.Builder builder=new AlertDialog.Builder(ShowProductForCustomerPurchase.this);
                         LayoutInflater layoutInflater=getLayoutInflater();
-                        final View dialogView=layoutInflater.inflate(R.layout.preview_listview_dialog,null);
+                        final View dialogView=layoutInflater.inflate(R.layout.payment_dialog,null);
 
                         builder.setView(dialogView);
                         builder.setTitle("Pyament Method");
                         final AlertDialog alertDialog=builder.create();
-                        TextView totalPrice=(TextView)dialogView.findViewById(R.id.tvShowTotalprice);
+                        TextView totalPrice=(TextView)dialogView.findViewById(R.id.tvShowTotalBil);
                         final EditText etTranxId=(EditText)dialogView.findViewById(R.id.etTrnxId);
                         Button btPayment=(Button)dialogView.findViewById(R.id.btPayment);
                         Button btClose=(Button)dialogView.findViewById(R.id.btClosePayment);
@@ -208,11 +208,16 @@ public class ShowProductForCustomerPurchase extends AppCompatActivity {
                         btPayment.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
+                                alertDialog.dismiss();
                                 String trnxId=etTranxId.getText().toString().trim();
                                 tranxDtababase=FirebaseDatabase.getInstance().getReference("transaction").child(year).child(month).child(date).child(id);
-                                CustomerPurchaseModel customerPurchaseModel=new CustomerPurchaseModel(trnxId,showPrice);
+                                String paymentStatus="pending";
+                                CustomerPurchaseModel customerPurchaseModel=new CustomerPurchaseModel(trnxId,showPrice,paymentStatus);
                                 tranxDtababase.setValue(customerPurchaseModel);
-
+                                Toast.makeText(getApplicationContext(),"success!! check payment status",Toast.LENGTH_LONG).show();
+                                tranxDatabaseTwo=FirebaseDatabase.getInstance().getReference("transactionForAuthority").child(year).child(month).child(date).child("id").child(id);
+                                CustomerPurchaseModel customerPurchaseModel1=new CustomerPurchaseModel(trnxId,showPrice,paymentStatus);
+                                tranxDatabaseTwo.setValue(customerPurchaseModel1);
 
 
                             }

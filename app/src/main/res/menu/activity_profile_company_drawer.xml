@@ -15,9 +15,9 @@
             android:icon="@mipmap/logout"
             android:title="Logout" />
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:id="@+id/payments"
+            android:icon="@mipmap/payments"
+            android:title="Payments" />
     </group>
 
     <item android:title="Communicate">

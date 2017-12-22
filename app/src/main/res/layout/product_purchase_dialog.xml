@@ -66,7 +66,7 @@
         android:layout_marginTop="18dp"
         android:layout_below="@id/etProductPrices"
         android:layout_height="wrap_content"
-        app:initialNumber="1"
+        app:initialNumber="0"
         app:finalNumber="10"
         />
     <TextView
