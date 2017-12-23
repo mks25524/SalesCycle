@@ -42,7 +42,7 @@ public class ShowSalesManProductForSale extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
 
     //database reference
-    private DatabaseReference mDatabase,customerDatabase,newSales;
+    private DatabaseReference mDatabase,customerDatabase,newSales,newSalesCustomer;
 
     //progress dialog
     private ProgressDialog progressDialog;
@@ -219,6 +219,9 @@ public class ShowSalesManProductForSale extends AppCompatActivity {
                                 newSales=FirebaseDatabase.getInstance().getReference("newSales").child(date);
                                 NewSalesModel model=new NewSalesModel(id,date,Orange,Red_Apple,China_Orange,Dragon,Green_Apple,Guava,Nashpati,Red_Grapes,Green_Grapes,finalPrice);
                                 newSales.child(id).setValue(model);
+                                newSalesCustomer=FirebaseDatabase.getInstance().getReference("newSalesCustomer").child(id);
+                                NewSalesModel model1=new NewSalesModel(id,date,Orange,Red_Apple,China_Orange,Dragon,Green_Apple,Guava,Nashpati,Red_Grapes,Green_Grapes,finalPrice);
+                                newSalesCustomer.child(date).setValue(model1);
                             }
                         });
                     }

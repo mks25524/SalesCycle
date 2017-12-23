@@ -31,7 +31,7 @@ import java.util.List;
 import static com.uuproject2.mks.salescycle.R.id.recyclerView;
 
 public class ProfileSalesManagerActivity extends AppCompatActivity implements View.OnClickListener{
-    ImageView imgbtProducts,customer,logout ;
+    ImageView imgbtProducts,customer,logout,salesHistory;
     TextView tv;
     private RecyclerView recyclerView;
 
@@ -48,11 +48,13 @@ public class ProfileSalesManagerActivity extends AppCompatActivity implements Vi
      imgbtProducts= (ImageView) findViewById(R.id.imbtProduct);
         customer= (ImageView) findViewById(R.id.imCustomer);
         logout= (ImageView) findViewById(R.id.logout);
+        salesHistory= (ImageView) findViewById(R.id.imSalesHistory);
 
 
         imgbtProducts.setOnClickListener(this);
         logout.setOnClickListener(this);
         customer.setOnClickListener(this);
+        salesHistory.setOnClickListener(this);
 
 //        imgbtProducts.setOnClickListener(new View.OnClickListener() {
 //          @Override
@@ -94,6 +96,10 @@ public class ProfileSalesManagerActivity extends AppCompatActivity implements Vi
             case R.id.logout:
                 startActivity(new Intent(getApplicationContext(),MainActivity.class));
                 break;
+            case R.id.imSalesHistory:
+                startActivity(new Intent(getApplicationContext(),ShowSalesHistoryBySalesmanager.class));
+                break;
+
 
         }
     }

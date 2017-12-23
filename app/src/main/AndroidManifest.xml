@@ -38,7 +38,9 @@
         <activity android:name=".Comp.customer.CustomerPurchaseActivity" />
         <activity android:name=".Comp.customer.ShowProductForCustomerPurchase" />
         <activity android:name=".Comp.salesmanager.PaymentsViewActivity" />
-        <activity android:name=".Comp.company.ShowTransactionActivity"></activity>
+        <activity android:name=".Comp.company.ShowTransactionActivity" />
+        <activity android:name=".Comp.salesmanager.ShowSalesHistoryBySalesmanager" />
+        <activity android:name=".Comp.salesmanager.SalesHistoryListForSalesmanager"></activity>
     </application>
 
 </manifest>
