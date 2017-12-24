@@ -17,8 +17,10 @@ public class NewSalesModel {
     private String red_Grapes;
     private String green_Grapes;
     private int totalBill;
+    private String paymentStatus;
+    private String deleverStatus;
 
-    public NewSalesModel(String id, String date, String orange, String red_Apple, String china_Orange, String dragon_Fruits, String green_Apple, String guava, String nashpati, String red_Grapes, String green_Grapes, int totalBill) {
+    public NewSalesModel(String id, String date, String orange, String red_Apple, String china_Orange, String dragon_Fruits, String green_Apple, String guava, String nashpati, String red_Grapes, String green_Grapes, int totalBill,String paymentStatus,String deleverStatus) {
         this.id = id;
         this.date = date;
         this.orange = orange;
@@ -31,6 +33,8 @@ public class NewSalesModel {
         this.red_Grapes = red_Grapes;
         this.green_Grapes = green_Grapes;
         this.totalBill = totalBill;
+        this.paymentStatus=paymentStatus;
+        this.deleverStatus=deleverStatus;
     }
 
     public NewSalesModel(){};
@@ -81,5 +85,13 @@ public class NewSalesModel {
 
     public int getTotalBill() {
         return totalBill;
+    }
+
+    public String getPaymentStatus() {
+        return paymentStatus;
+    }
+
+    public String getDeleverStatus() {
+        return deleverStatus;
     }
 }

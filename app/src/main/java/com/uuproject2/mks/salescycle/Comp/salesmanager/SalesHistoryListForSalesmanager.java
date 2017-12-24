@@ -1,11 +1,13 @@
 package com.uuproject2.mks.salescycle.Comp.salesmanager;
 
 import android.app.ProgressDialog;
+import android.nfc.Tag;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +19,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.uuproject2.mks.salescycle.Comp.model.DeleverStatusModel;
+import com.uuproject2.mks.salescycle.Comp.model.DeleverSuccessStatusModel;
 import com.uuproject2.mks.salescycle.Comp.model.NewSalesModel;
 import com.uuproject2.mks.salescycle.Comp.model.SalesHistoryAdapterForManager;
 import com.uuproject2.mks.salescycle.Comp.model.SalesHistoryModel;
@@ -34,7 +38,7 @@ public class SalesHistoryListForSalesmanager extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
 
     //database reference
-    private DatabaseReference mDatabase;
+    private DatabaseReference mDatabase,mDatabaseTwo,mDatabseThree;
 
     //progress dialog
     private ProgressDialog progressDialog;
@@ -42,8 +46,11 @@ public class SalesHistoryListForSalesmanager extends AppCompatActivity {
 
     //list to hold all the uploaded images
     private List<NewSalesModel> uploads;
+    private List<Customer>pick;
 
     private SalesHistoryAdapterForManager myAdapter;
+    String address,mobile,name,shop;
+    String deleverStatus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,11 +130,106 @@ public class SalesHistoryListForSalesmanager extends AppCompatActivity {
             }
 
             @Override
-            public void onLongClick(View view, int position) {
+            public void onLongClick(View view, final int position) {
+                final AlertDialog.Builder builder=new AlertDialog.Builder(SalesHistoryListForSalesmanager.this);
+                LayoutInflater layoutInflater=getLayoutInflater();
+                final View dialogView=layoutInflater.inflate(R.layout.dialog_delever_status,null);
+                builder.setView(dialogView);
+                final TextView showPaymentStatus=(TextView)dialogView.findViewById(R.id.showPaymentStatus);
+                final TextView showDeleverStatus=(TextView)dialogView.findViewById(R.id.showDeleverStatus);
+                final TextView showAddress=(TextView)dialogView.findViewById(R.id.showAddress);
+                final TextView showName=(TextView)dialogView.findViewById(R.id.showName);
+                final TextView showShopName=(TextView)dialogView.findViewById(R.id.showShopName);
+                final TextView showMobileNum=(TextView)dialogView.findViewById(R.id.showMobile);
+                Button btClose=(Button)dialogView.findViewById(R.id.btClose);
+                Button btDone=(Button)dialogView.findViewById(R.id.btDone);
+                builder.setTitle("Delever Report");
+                final AlertDialog alertDialog=builder.create();
+                mDatabaseTwo = FirebaseDatabase.getInstance().getReference();
+                DatabaseReference mDatabasex=mDatabaseTwo.child("customer");
+                ValueEventListener valueEventListenerx=new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for(DataSnapshot snapshot:dataSnapshot.getChildren()){
+                          // address=snapshot.child("01731623524").getValue(String.class);
+                           // address=upload.getChina_Orange();
+//                        address=snapshot.child("customerAddress").getValue(String.class);
+//                        name=snapshot.child("customerName").getValue(String.class);
+//                        mobile=snapshot.child("customerMobile").getValue(String.class);
+//                        shop=snapshot.child("customerShopName").getValue(String.class);
+                            //showAddress.setText(address);
+                            Customer customer=snapshot.getValue(Customer.class);
+                            if(uploads.get(position).getId().equals(customer.getCustomerMobile())){
+                                address=customer.getCustomerAddress();
+                                mobile=customer.getCustomerMobile();
+                                name=customer.getCustomerName();
+                                shop=customer.getCustomerShopName();
+                            }
+                            showAddress.setText(address);
+                            showName.setText(name);
+                            showShopName.setText(shop);
+                            showMobileNum.setText(mobile);
+
+
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                };
+                mDatabasex.addListenerForSingleValueEvent(valueEventListenerx);
+//                mDatabasex.addValueEventListener(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(DataSnapshot dataSnapshot) {
+//                        for(DataSnapshot snapshot:dataSnapshot.getChildren()){
+//                         Customer upload=snapshot.getValue(Customer.class);
+////
+////
+////
+////
+//                           address=upload.getCustomerAddress();
+//                            name=upload.getCustomerName();
+//                            mobile=upload.getCustomerMobile();
+//                            shop=upload.getCustomerShopName();
+//
+//
+//                    }}
+//
+//                    @Override
+//                    public void onCancelled(DatabaseError databaseError) {
+//
+//                    }
+//                });
+                showPaymentStatus.setText(uploads.get(position).getPaymentStatus());
+                if(deleverStatus=="Done"){
+                showDeleverStatus.setText("Delevered");}else {
+                    showDeleverStatus.setText(uploads.get(position).getDeleverStatus());
+                }
+
+
+
+                btClose.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        alertDialog.dismiss();
+                    }
+                });
+                btDone.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        deleverStatus="Done";
+//
+//                        mDatabseThree=FirebaseDatabase.getInstance().getReference("newSales").child(uploads.get(position).getDate());
+//                        DeleverSuccessStatusModel model=new DeleverSuccessStatusModel(deleverStatus);
+//                        mDatabseThree.child(uploads.get(position).getId()).setValue(model);
+                    }
+                });
+                alertDialog.show();
 
             }
         }));
-
 
         progressDialog = new ProgressDialog(this);
         uploads = new ArrayList<>();
@@ -158,7 +260,7 @@ s=upload.getRed_Apple();
                 recyclerView.setAdapter(adapter);
                 // String totalBil=dataSnapshot.child("totalBill").getValue(String.class);
                // Toast.makeText(getApplicationContext(),"bill: "+uploads.get(0).getName(),Toast.LENGTH_LONG).show();
-                Toast.makeText(getApplicationContext(),"hi good"+s,Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"hi good"+uploads.get(0).getRed_Apple(),Toast.LENGTH_LONG).show();
             }
 
 

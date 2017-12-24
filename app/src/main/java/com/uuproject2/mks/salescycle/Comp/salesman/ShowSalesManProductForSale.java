@@ -215,12 +215,14 @@ public class ShowSalesManProductForSale extends AppCompatActivity {
 //                              Red_Apple=arrayAdapter.getItem(0);
 //                                String ss[]=Red_Apple.split(" ");
 //                                Toast.makeText(getApplicationContext(),"yes"+ss[1],Toast.LENGTH_LONG).show();
+                                String paymentStatus="ok";
+                                String deleverStatus="pending";
 
                                 newSales=FirebaseDatabase.getInstance().getReference("newSales").child(date);
-                                NewSalesModel model=new NewSalesModel(id,date,Orange,Red_Apple,China_Orange,Dragon,Green_Apple,Guava,Nashpati,Red_Grapes,Green_Grapes,finalPrice);
+                                NewSalesModel model=new NewSalesModel(id,date,Orange,Red_Apple,China_Orange,Dragon,Green_Apple,Guava,Nashpati,Red_Grapes,Green_Grapes,finalPrice,paymentStatus,deleverStatus);
                                 newSales.child(id).setValue(model);
                                 newSalesCustomer=FirebaseDatabase.getInstance().getReference("newSalesCustomer").child(id);
-                                NewSalesModel model1=new NewSalesModel(id,date,Orange,Red_Apple,China_Orange,Dragon,Green_Apple,Guava,Nashpati,Red_Grapes,Green_Grapes,finalPrice);
+                                NewSalesModel model1=new NewSalesModel(id,date,Orange,Red_Apple,China_Orange,Dragon,Green_Apple,Guava,Nashpati,Red_Grapes,Green_Grapes,finalPrice,paymentStatus,deleverStatus);
                                 newSalesCustomer.child(date).setValue(model1);
                             }
                         });
