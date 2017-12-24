@@ -188,7 +188,7 @@ public class ShowSalesManProductForSale extends AppCompatActivity {
                             @Override
                             public void onClick(View view) {
                                 //for newsale
-                                String Orange="0",Red_Apple="0",China_Orange="0",Dragon="0",Green_Apple="0",Green_Grapes="0",Guava="0",Nashpati="0",Red_Grapes="0";
+                                String Orange="",Red_Apple="",China_Orange="",Dragon="",Green_Apple="",Green_Grapes="",Guava="",Nashpati="",Red_Grapes="";
                                // Toast.makeText(getApplicationContext(),"yes"+list.size(),Toast.LENGTH_LONG).show();
                                 for(int i=0;i<list.size();i++){
                                     String []s=arrayAdapter.getItem(i).split(" ");

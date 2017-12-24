@@ -70,33 +70,49 @@ public class SalesHistoryListForSalesmanager extends AppCompatActivity {
                 final TextView tv8=(TextView)dialogView.findViewById(R.id.tv8);
                 final TextView tv9=(TextView)dialogView.findViewById(R.id.tv9);
                 final TextView tv10=(TextView)dialogView.findViewById(R.id.tv10);
-                final TextView tvTotalbill=(TextView)dialogView.findViewById(R.id.tvtotalBil);
+              final TextView tvTotalbill=(TextView)dialogView.findViewById(R.id.tvtotalBil);
+                final TextView tvTotalbills=(TextView)dialogView.findViewById(R.id.textView5);
 
                 Button btOk=(Button)dialogView.findViewById(R.id.btOk);
                 builder.setTitle("sales history");
                 final AlertDialog alertDialog=builder.create();
-                if(!Objects.equals(uploads.get(position).getOrange(), "0")){
-                    tv1.setText(uploads.get(position).getOrange());
-                }if(!Objects.equals(uploads.get(position).getChina_Orange(), "0")){
-                    tv2.setText(uploads.get(position).getChina_Orange());
-                }if(!Objects.equals(uploads.get(position).getDragon_Fruits(), "0")){
-                    tv3.setText(uploads.get(position).getDragon_Fruits());
-                }if(!Objects.equals(uploads.get(position).getGreen_Apple(), "0")){
-                    tv4.setText(uploads.get(position).getGreen_Apple());
-                }if(!Objects.equals(uploads.get(position).getRed_Apple(), "0")){
-                    tv5.setText(uploads.get(position).getRed_Apple());
-                }if(!Objects.equals(uploads.get(position).getRed_Grapes(), "0")){
-                    tv6.setText(uploads.get(position).getRed_Grapes());
-                }if(!Objects.equals(uploads.get(position).getGuava(), "0")){
-                    tv7.setText(uploads.get(position).getGuava());
-                }if(!Objects.equals(uploads.get(position).getNashpati(), "0")){
-                    tv8.setText(uploads.get(position).getNashpati());
-                }if(!Objects.equals(uploads.get(position).getGreen_Grapes(), "0")){
-                    tv9.setText(uploads.get(position).getGreen_Grapes());
-                }if(!Objects.equals(uploads.get(position).getGreen_Apple(), "0")){
-                    tv10.setText(uploads.get(position).getGreen_Apple());
-                }
-                tvTotalbill.setText(uploads.get(position).getTotalBill());
+//                if(!Objects.equals(uploads.get(position).getOrange(), "0")){
+//                    tv1.setText(uploads.get(position).getOrange());
+//                }if(!Objects.equals(uploads.get(position).getChina_Orange(), "0")){
+//                    tv2.setText(uploads.get(position).getChina_Orange());
+//                }if(!Objects.equals(uploads.get(position).getDragon_Fruits(), "0")){
+//                    tv3.setText(uploads.get(position).getDragon_Fruits());
+//                }if(!Objects.equals(uploads.get(position).getGreen_Apple(), "0")){
+//                    tv4.setText(uploads.get(position).getGreen_Apple());
+//                }if(!Objects.equals(uploads.get(position).getRed_Apple(), "0")){
+//                    tv5.setText(uploads.get(position).getRed_Apple());
+//                }if(!Objects.equals(uploads.get(position).getRed_Grapes(), "0")){
+//                    tv6.setText(uploads.get(position).getRed_Grapes());
+//                }if(!Objects.equals(uploads.get(position).getGuava(), "0")){
+//                    tv7.setText(uploads.get(position).getGuava());
+//                }if(!Objects.equals(uploads.get(position).getNashpati(), "0")){
+//                    tv8.setText(uploads.get(position).getNashpati());
+//                }if(!Objects.equals(uploads.get(position).getGreen_Grapes(), "0")){
+//                    tv9.setText(uploads.get(position).getGreen_Grapes());
+//                }if(!Objects.equals(uploads.get(position).getGreen_Apple(), "0")){
+//                    tv10.setText(uploads.get(position).getGreen_Apple());
+//                }
+
+                tv1.setText(uploads.get(position).getOrange());
+                tv2.setText(uploads.get(position).getChina_Orange());
+                tv3.setText(uploads.get(position).getDragon_Fruits());
+                tv4.setText(uploads.get(position).getGreen_Apple());
+                tv5.setText(uploads.get(position).getRed_Apple());
+                tv6.setText(uploads.get(position).getRed_Grapes());
+                tv7.setText(uploads.get(position).getGuava());
+                tv8.setText(uploads.get(position).getNashpati());
+                tv9.setText(uploads.get(position).getGreen_Grapes());
+                tv10.setText(uploads.get(position).getGreen_Apple());
+
+                int s=uploads.get(position).getTotalBill();
+                String ss= String.valueOf(s);
+                tvTotalbill.setText(ss);
+                Toast.makeText(getApplicationContext(),"bil:"+uploads.get(position).getTotalBill(),Toast.LENGTH_LONG).show();
                 alertDialog.show();
                 btOk.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -134,7 +150,7 @@ public class SalesHistoryListForSalesmanager extends AppCompatActivity {
                     NewSalesModel upload=snapshot.getValue(NewSalesModel.class);
                     uploads.add(upload);
 
-
+s=upload.getRed_Apple();
                 }
                 adapter = new SalesHistoryAdapterForManager(getApplicationContext(), uploads);
 //
@@ -142,8 +158,9 @@ public class SalesHistoryListForSalesmanager extends AppCompatActivity {
                 recyclerView.setAdapter(adapter);
                 // String totalBil=dataSnapshot.child("totalBill").getValue(String.class);
                // Toast.makeText(getApplicationContext(),"bill: "+uploads.get(0).getName(),Toast.LENGTH_LONG).show();
-
+                Toast.makeText(getApplicationContext(),"hi good"+s,Toast.LENGTH_LONG).show();
             }
+
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
