@@ -29,6 +29,7 @@ import com.uuproject2.mks.salescycle.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 public class SalesHistoryListForSalesmanager extends AppCompatActivity {
@@ -38,7 +39,7 @@ public class SalesHistoryListForSalesmanager extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
 
     //database reference
-    private DatabaseReference mDatabase,mDatabaseTwo,mDatabseThree;
+    private DatabaseReference mDatabase,mDatabaseTwo,mDatabseThree,mDatabaseFour;
 
     //progress dialog
     private ProgressDialog progressDialog;
@@ -219,11 +220,29 @@ public class SalesHistoryListForSalesmanager extends AppCompatActivity {
                 btDone.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        deleverStatus="Done";
+                        deleverStatus="Delevered";
+                        String id=uploads.get(position).getId();
+                        String date=uploads.get(position).getDate();
+                        String orange=uploads.get(position).getOrange();
+                        String redApple=uploads.get(position).getRed_Apple();
+                        String chinaOrange=uploads.get(position).getChina_Orange();
+                        String dragonFruits=uploads.get(position).getDragon_Fruits();
+                        String greenApple=uploads.get(position).getGreen_Apple();
+                        String guava=uploads.get(position).getGuava();
+                        String nashpati=uploads.get(position).getNashpati();
+                        String redGrapes=uploads.get(position).getRed_Grapes();
+                        String greenGrapes=uploads.get(position).getGreen_Grapes();
+                        int finalPrice=uploads.get(position).getTotalBill();
+                        String paymentStatus=uploads.get(position).getPaymentStatus();
+
 //
-//                        mDatabseThree=FirebaseDatabase.getInstance().getReference("newSales").child(uploads.get(position).getDate());
-//                        DeleverSuccessStatusModel model=new DeleverSuccessStatusModel(deleverStatus);
-//                        mDatabseThree.child(uploads.get(position).getId()).setValue(model);
+                        mDatabseThree=FirebaseDatabase.getInstance().getReference("newSales").child(date);
+                        NewSalesModel model=new NewSalesModel(id,date,orange,redApple,chinaOrange,dragonFruits,greenApple,guava,nashpati,redGrapes,greenGrapes,finalPrice,paymentStatus,deleverStatus);
+                        mDatabseThree.child(id).setValue(model);
+                        mDatabaseFour=FirebaseDatabase.getInstance().getReference("newSalesCustomer").child(id);
+                        NewSalesModel modelx=new NewSalesModel(id,date,orange,redApple,chinaOrange,dragonFruits,greenApple,guava,nashpati,redGrapes,greenGrapes,finalPrice,paymentStatus,deleverStatus);
+                        mDatabaseFour.child(date).setValue(modelx);
+
                     }
                 });
                 alertDialog.show();
