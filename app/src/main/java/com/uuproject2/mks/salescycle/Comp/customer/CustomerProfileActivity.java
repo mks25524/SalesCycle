@@ -32,7 +32,7 @@ import java.util.ArrayList;
 
 public class CustomerProfileActivity extends AppCompatActivity {
 
-    ImageView imPurchaseHistory,purchaseCustomer;
+    ImageView imPurchaseHistory,purchaseCustomer,imPaymentHistory;
 
 
     public static final String[] MONTHS = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
@@ -42,6 +42,7 @@ public class CustomerProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_customer_profile);
         purchaseCustomer= (ImageView) findViewById(R.id.purchaseCustomer);
         imPurchaseHistory= (ImageView) findViewById(R.id.imPurchaseHistory);
+        imPaymentHistory= (ImageView) findViewById(R.id.imPaymentHistory);
         //get data from customer login
 
 purchaseCustomer.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +61,16 @@ purchaseCustomer.setOnClickListener(new View.OnClickListener() {
                 Bundle bundle=getIntent().getExtras();
                 String id=bundle.getString("id");
                 Intent intent=new Intent(getApplicationContext(),BuyingHistoryCustomer.class);
+                intent.putExtra("id",id);
+                startActivity(intent);
+            }
+        });
+        imPaymentHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle=getIntent().getExtras();
+                String id=bundle.getString("id");
+                Intent intent=new Intent(getApplicationContext(),PyamentHistoryCustomer.class);
                 intent.putExtra("id",id);
                 startActivity(intent);
             }

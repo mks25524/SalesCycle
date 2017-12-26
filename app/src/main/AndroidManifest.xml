@@ -41,7 +41,8 @@
         <activity android:name=".Comp.company.ShowTransactionActivity" />
         <activity android:name=".Comp.salesmanager.ShowSalesHistoryBySalesmanager" />
         <activity android:name=".Comp.salesmanager.SalesHistoryListForSalesmanager" />
-        <activity android:name=".Comp.customer.BuyingHistoryCustomer"></activity>
+        <activity android:name=".Comp.customer.BuyingHistoryCustomer" />
+        <activity android:name=".Comp.customer.PyamentHistoryCustomer"></activity>
     </application>
 
 </manifest>

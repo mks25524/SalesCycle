@@ -18,6 +18,14 @@
         android:layout_height="128dp"
         android:src="@mipmap/purchase"
         android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/imPurchaseHistory" />
+        android:layout_toEndOf="@+id/imPurchaseHistory"
+        />
+    <ImageView
+        android:id="@+id/imPaymentHistory"
+        android:layout_width="100dp"
+        android:layout_height="128dp"
+        android:src="@mipmap/payments"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/purchaseCustomer" />
 
 </RelativeLayout>

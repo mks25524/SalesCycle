@@ -254,14 +254,14 @@ public class ShowProductForCustomerPurchase extends AppCompatActivity {
                             public void onClick(View view) {
                                 alertDialog.dismiss();
                                 String trnxId=etTranxId.getText().toString().trim();
-                                tranxDtababase=FirebaseDatabase.getInstance().getReference("transaction").child(year).child(month).child(date).child(id);
+                                tranxDtababase=FirebaseDatabase.getInstance().getReference("transaction").child(id);
                                 String paymentStatus="pending";
-                                CustomerPurchaseModel customerPurchaseModel=new CustomerPurchaseModel(trnxId,showPrice,paymentStatus);
-                                tranxDtababase.setValue(customerPurchaseModel);
+                                CustomerPurchaseModel customerPurchaseModel=new CustomerPurchaseModel(trnxId,showPrice,paymentStatus,id,date);
+                                tranxDtababase.child(date).setValue(customerPurchaseModel);
                                 Toast.makeText(getApplicationContext(),"success!! check payment status",Toast.LENGTH_LONG).show();
-                                tranxDatabaseTwo=FirebaseDatabase.getInstance().getReference("transactionForAuthority").child(year).child(month).child(date).child("id").child(id);
-                                CustomerPurchaseModel customerPurchaseModel1=new CustomerPurchaseModel(trnxId,showPrice,paymentStatus);
-                                tranxDatabaseTwo.setValue(customerPurchaseModel1);
+                                tranxDatabaseTwo=FirebaseDatabase.getInstance().getReference("transactionForAuthority").child(date);
+                                CustomerPurchaseModel customerPurchaseModel1=new CustomerPurchaseModel(trnxId,showPrice,paymentStatus,id,date);
+                                tranxDatabaseTwo.child(id).setValue(customerPurchaseModel1);
 
 
                             }
