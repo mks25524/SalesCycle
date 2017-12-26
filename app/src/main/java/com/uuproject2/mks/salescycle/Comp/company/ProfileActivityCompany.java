@@ -122,7 +122,7 @@ public class ProfileActivityCompany extends AppCompatActivity
             startActivity(intent);
 
         } else if (id == R.id.payments) {
-            Intent intent=new Intent(getApplicationContext(),ShowTransactionActivity.class);
+            Intent intent=new Intent(getApplicationContext(),ShowTransactionStatus.class);
             startActivity(intent);
 
 
