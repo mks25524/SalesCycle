@@ -54,6 +54,16 @@ purchaseCustomer.setOnClickListener(new View.OnClickListener() {
         startActivity(intent);
     }
 });
+        imPurchaseHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle=getIntent().getExtras();
+                String id=bundle.getString("id");
+                Intent intent=new Intent(getApplicationContext(),BuyingHistoryCustomer.class);
+                intent.putExtra("id",id);
+                startActivity(intent);
+            }
+        });
 
     }
 

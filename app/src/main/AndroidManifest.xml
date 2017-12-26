@@ -40,7 +40,8 @@
         <activity android:name=".Comp.salesmanager.PaymentsViewActivity" />
         <activity android:name=".Comp.company.ShowTransactionActivity" />
         <activity android:name=".Comp.salesmanager.ShowSalesHistoryBySalesmanager" />
-        <activity android:name=".Comp.salesmanager.SalesHistoryListForSalesmanager"></activity>
+        <activity android:name=".Comp.salesmanager.SalesHistoryListForSalesmanager" />
+        <activity android:name=".Comp.customer.BuyingHistoryCustomer"></activity>
     </application>
 
 </manifest>
