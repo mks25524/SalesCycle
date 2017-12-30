@@ -23,13 +23,11 @@
         android:layout_toEndOf="@+id/btSetDate" />
     <DatePicker
         android:id="@+id/datePicker1"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="69dp"
-        android:layout_below="@+id/imProductSale"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="43dp"
-        android:layout_alignEnd="@+id/tvDateView" />
+        android:layout_width="300dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="16dp"
+        android:layout_below="@+id/btSetDate"
+        android:layout_toEndOf="@+id/btSetDate" />
 
 
     <Button

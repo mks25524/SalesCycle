@@ -11,11 +11,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.uuproject2.mks.salescycle.Comp.LocationSharing.RealLocationActivity;
 import com.uuproject2.mks.salescycle.Comp.company.MainActivity;
 import com.uuproject2.mks.salescycle.R;
 
 public class ProfileSalesManActivity extends AppCompatActivity implements View.OnClickListener {
-    ImageView imSales,logout;
+    ImageView imSales,logout,location;
     TextView tv;
 
     @Override
@@ -24,10 +25,13 @@ public class ProfileSalesManActivity extends AppCompatActivity implements View.O
         setContentView(R.layout.activity_profile_sales_man);
         imSales= (ImageView) findViewById(R.id.imbtSalesManSales);
         logout= (ImageView) findViewById(R.id.logout);
+        location= (ImageView) findViewById(R.id.imSalesmanLocation);
+        location.setOnClickListener(this);
         imSales.setOnClickListener(this);
         logout.setOnClickListener(this);
         Bundle bundle=getIntent().getExtras();
         final String name=bundle.getString("name");
+        String id=bundle.getString("id");
         ActionBar actionBar=getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowCustomEnabled(true);
@@ -56,6 +60,14 @@ public class ProfileSalesManActivity extends AppCompatActivity implements View.O
             case R.id.logout:
                 startActivity(new Intent(getApplicationContext(),MainActivity.class));
                 break;
+            case R.id.imSalesmanLocation:
+                Bundle bundle=getIntent().getExtras();
+
+                String id=bundle.getString("id");
+            Intent intent=new Intent(this,RealLocationActivity.class);
+            intent.putExtra("id",id);
+            startActivity(intent);
+            break;
         }
     }
 }

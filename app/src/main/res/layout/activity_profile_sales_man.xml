@@ -19,7 +19,18 @@
         android:scaleType="fitXY"
         android:src="@mipmap/logout"
         android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/imbtSalesManSales"
-        android:layout_marginStart="12dp" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="11dp" />
+    <ImageView
+        android:id="@+id/imSalesmanLocation"
+        android:layout_width="100dp"
+        android:layout_height="128dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/locationsharing"
+        android:layout_marginStart="22dp"
+        android:layout_alignTop="@+id/logout"
+        android:layout_toEndOf="@+id/imbtSalesManSales" />
+
 
 </RelativeLayout>

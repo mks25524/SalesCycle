@@ -69,22 +69,26 @@ editor.putString("id",id);
                        String dbPassword=authority.getPassword();
                        String dbCatagory=authority.getCatagory();
                        String name=authority.getName();
+                       String ids=authority.getId();
                    // Toast.makeText(getApplicationContext(),"catagory"+dbCatagory+"sf"+dbPassword,Toast.LENGTH_LONG).show();
                        if(Objects.equals("salescycle",dbPassword)){
                            if(Objects.equals(dbCatagory, "Delivery Man")){
                                Toast.makeText(getApplicationContext(),"Login as a Delivery Man",Toast.LENGTH_LONG).show();
                                Intent intent=new Intent(getApplicationContext(),ProfileDelevermanActivity.class);
                                intent.putExtra("name",name);
+                               intent.putExtra("id",ids);
                                startActivity(intent);
                            }else  if(Objects.equals(dbCatagory, "Sales Manager")){
                                Toast.makeText(getApplicationContext(),"Login as Sales Manager",Toast.LENGTH_LONG).show();
                                Intent intent=new Intent(getApplicationContext(),ProfileSalesManagerActivity.class);
                                intent.putExtra("name",name);
+                               intent.putExtra("id",ids);
                                startActivity(intent);
                            }else  if(Objects.equals(dbCatagory, "Sales Man")){
                                Toast.makeText(getApplicationContext(),"Login as a Sales Man",Toast.LENGTH_LONG).show();
                                Intent intent=new Intent(getApplicationContext(),ProfileSalesManActivity.class);
                                intent.putExtra("name",name);
+                               intent.putExtra("id",ids);
                                startActivity(intent);
                            }
                        }

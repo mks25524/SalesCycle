@@ -29,14 +29,22 @@
       android:layout_height="128dp"
       android:scaleType="fitXY"
       android:src="@mipmap/logout"
-      android:layout_alignParentTop="true"
-      android:layout_toEndOf="@+id/imCustomer"
-      android:layout_marginStart="12dp" />
+      android:layout_below="@+id/imCustomer"
+      android:layout_alignStart="@+id/imCustomer" />
   <ImageView
       android:id="@+id/imSalesHistory"
       android:layout_width="100dp"
       android:layout_height="128dp"
       android:src="@mipmap/sales"
       android:layout_below="@+id/imbtProduct"/>
+  <ImageView
+
+      android:layout_width="100dp"
+      android:layout_height="128dp"
+      android:src="@mipmap/locationsharing"
+      android:id="@+id/imSalesManagerLocation"
+      android:layout_alignParentTop="true"
+      android:layout_toEndOf="@+id/imCustomer"
+      android:layout_marginStart="22dp" />
 
 </RelativeLayout>

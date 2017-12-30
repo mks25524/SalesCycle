@@ -10,27 +10,21 @@
             android:id="@+id/Products"
             android:icon="@mipmap/product"
             android:title="Products" />
-        <item
-            android:id="@+id/logout"
-            android:icon="@mipmap/logout"
-            android:title="Logout" />
+
         <item
             android:id="@+id/payments"
             android:icon="@mipmap/payments"
             android:title="Payments" />
+        <item
+            android:id="@+id/location"
+            android:icon="@mipmap/location"
+            android:title="Trace Authority"/>
+        <item
+            android:id="@+id/logout"
+            android:icon="@mipmap/logout"
+            android:title="Logout" />
     </group>
 
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
-        </menu>
-    </item>
+
 
 </menu>

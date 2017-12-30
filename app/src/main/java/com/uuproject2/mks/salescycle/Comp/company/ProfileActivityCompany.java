@@ -18,8 +18,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.uuproject2.mks.salescycle.Comp.salesmanager.ShowProductActivity;
+import com.uuproject2.mks.salescycle.Map.MapsActivity;
 import com.uuproject2.mks.salescycle.R;
 
 public class ProfileActivityCompany extends AppCompatActivity
@@ -126,9 +128,14 @@ public class ProfileActivityCompany extends AppCompatActivity
             startActivity(intent);
 
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.location) {
+            GPSTracker gps=new GPSTracker(this);
+          String location=gps.getLocation().toString();
+           String city=gps.getCityName();
+            String longlat=gps.getLatitude()+""+gps.getLongitude();
+            Intent intent=new Intent(getApplicationContext(),MapsActivity.class);
+            startActivity(intent);
+            Toast.makeText(getApplicationContext(),"longLat:"+city,Toast.LENGTH_LONG).show();
 
         }
 

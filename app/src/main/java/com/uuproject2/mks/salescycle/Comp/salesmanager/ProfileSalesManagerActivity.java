@@ -22,6 +22,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.uuproject2.mks.salescycle.Comp.LocationSharing.RealLocationActivity;
 import com.uuproject2.mks.salescycle.Comp.company.MainActivity;
 import com.uuproject2.mks.salescycle.R;
 
@@ -31,7 +32,7 @@ import java.util.List;
 import static com.uuproject2.mks.salescycle.R.id.recyclerView;
 
 public class ProfileSalesManagerActivity extends AppCompatActivity implements View.OnClickListener{
-    ImageView imgbtProducts,customer,logout,salesHistory;
+    ImageView imgbtProducts,customer,logout,salesHistory,location;
     TextView tv;
     private RecyclerView recyclerView;
 
@@ -48,6 +49,7 @@ public class ProfileSalesManagerActivity extends AppCompatActivity implements Vi
      imgbtProducts= (ImageView) findViewById(R.id.imbtProduct);
         customer= (ImageView) findViewById(R.id.imCustomer);
         logout= (ImageView) findViewById(R.id.logout);
+        location= (ImageView) findViewById(R.id.imSalesManagerLocation);
         salesHistory= (ImageView) findViewById(R.id.imSalesHistory);
 
 
@@ -98,6 +100,14 @@ public class ProfileSalesManagerActivity extends AppCompatActivity implements Vi
                 break;
             case R.id.imSalesHistory:
                 startActivity(new Intent(getApplicationContext(),ShowSalesHistoryBySalesmanager.class));
+                break;
+            case R.id.imSalesmanLocation:
+                Bundle bundle=getIntent().getExtras();
+
+                String id=bundle.getString("id");
+                Intent intent=new Intent(this,RealLocationActivity.class);
+                intent.putExtra("id",id);
+                startActivity(intent);
                 break;
 
 
