@@ -104,7 +104,7 @@
         android:layout_alignEnd="@+id/etProductPrices" />
     <Button
         android:id="@+id/btPay"
-        android:text="Payment"
+        android:text="Pay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvShowCalculatedPrice"

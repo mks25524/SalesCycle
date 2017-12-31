@@ -24,6 +24,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.uuproject2.mks.salescycle.Comp.company.MainActivity;
 import com.uuproject2.mks.salescycle.Comp.salesman.ShowSalesManProductForSale;
 import com.uuproject2.mks.salescycle.Comp.salesmanager.Product;
 import com.uuproject2.mks.salescycle.R;
@@ -32,7 +33,7 @@ import java.util.ArrayList;
 
 public class CustomerProfileActivity extends AppCompatActivity {
 
-    ImageView imPurchaseHistory,purchaseCustomer,imPaymentHistory;
+    ImageView imPurchaseHistory,purchaseCustomer,imPaymentHistory,logout;
 
 
     public static final String[] MONTHS = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
@@ -43,6 +44,7 @@ public class CustomerProfileActivity extends AppCompatActivity {
         purchaseCustomer= (ImageView) findViewById(R.id.purchaseCustomer);
         imPurchaseHistory= (ImageView) findViewById(R.id.imPurchaseHistory);
         imPaymentHistory= (ImageView) findViewById(R.id.imPaymentHistory);
+        logout= (ImageView) findViewById(R.id.imLogout);
         //get data from customer login
 
 purchaseCustomer.setOnClickListener(new View.OnClickListener() {
@@ -72,6 +74,14 @@ purchaseCustomer.setOnClickListener(new View.OnClickListener() {
                 String id=bundle.getString("id");
                 Intent intent=new Intent(getApplicationContext(),PyamentHistoryCustomer.class);
                 intent.putExtra("id",id);
+                startActivity(intent);
+            }
+        });
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+
                 startActivity(intent);
             }
         });

@@ -114,10 +114,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Done"
-        android:layout_below="@+id/showShopName"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="35dp"
-        android:layout_marginTop="12dp" />
+        android:layout_below="@+id/showMobile"
+        android:layout_alignEnd="@+id/showMobile" />
     <Button
         android:id="@+id/btClose"
         android:layout_width="wrap_content"

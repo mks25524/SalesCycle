@@ -57,6 +57,7 @@ public class ProfileSalesManagerActivity extends AppCompatActivity implements Vi
         logout.setOnClickListener(this);
         customer.setOnClickListener(this);
         salesHistory.setOnClickListener(this);
+        location.setOnClickListener(this);
 
 //        imgbtProducts.setOnClickListener(new View.OnClickListener() {
 //          @Override
@@ -101,9 +102,8 @@ public class ProfileSalesManagerActivity extends AppCompatActivity implements Vi
             case R.id.imSalesHistory:
                 startActivity(new Intent(getApplicationContext(),ShowSalesHistoryBySalesmanager.class));
                 break;
-            case R.id.imSalesmanLocation:
+            case R.id.imSalesManagerLocation:
                 Bundle bundle=getIntent().getExtras();
-
                 String id=bundle.getString("id");
                 Intent intent=new Intent(this,RealLocationActivity.class);
                 intent.putExtra("id",id);

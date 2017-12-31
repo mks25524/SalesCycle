@@ -32,7 +32,7 @@
 
     <Button
         android:id="@+id/imProductSale"
-        android:layout_width="60dp"
+        android:layout_width="70dp"
         android:layout_height="50dp"
         android:text="Show"
         android:layout_below="@id/btSetDate" />
