@@ -1,8 +1,10 @@
 package com.uuproject2.mks.salescycle.Comp.company;
 
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -24,6 +26,8 @@ public class ShowTransactionStatus extends AppCompatActivity {
         setDate= (Button) findViewById(R.id.btSetDate);
         picker= (DatePicker) findViewById(R.id.datePicker1);
         showList= (Button) findViewById(R.id.imProductSale);
+
+
         showList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -39,6 +43,9 @@ public class ShowTransactionStatus extends AppCompatActivity {
             }
         });
     }
+
+
+
     public String getCurrentDate(){
         StringBuilder builder=new StringBuilder();
         builder.append((picker.getDayOfMonth()+"-"));

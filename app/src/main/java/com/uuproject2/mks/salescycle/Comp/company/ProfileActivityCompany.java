@@ -65,7 +65,7 @@ public class ProfileActivityCompany extends AppCompatActivity
         LayoutInflater inflator = (LayoutInflater) this .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View v = inflator.inflate(R.layout.show_actionbar_title, null);
         tv=(TextView)v.findViewById(R.id.titleAction);
-        tv.setText("UU Sales Cycle");
+        tv.setText("Sales Cycle");
         tv.setTextColor(Color.WHITE);
 
 

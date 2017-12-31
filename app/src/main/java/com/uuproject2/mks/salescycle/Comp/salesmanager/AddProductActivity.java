@@ -7,8 +7,10 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -25,6 +27,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.uuproject2.mks.salescycle.Comp.company.ProfileActivityCompany;
 import com.uuproject2.mks.salescycle.R;
 
 import java.io.IOException;
@@ -60,6 +63,8 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
         etPrice= (EditText) findViewById(R.id.etProductPrice);
         etQuantity= (EditText) findViewById(R.id.etProductQuantity);
         textViewShow = (TextView) findViewById(R.id.textViewShow);
+        //for back button
+
 
         storageReference = FirebaseStorage.getInstance().getReference();
         mDatabase = FirebaseDatabase.getInstance().getReference(Constants.DATABASE_PATH_UPLOADS);
@@ -68,6 +73,7 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
         buttonUpload.setOnClickListener(this);
         textViewShow.setOnClickListener(this);
     }
+
     private void showFileChooser() {
         Intent intent = new Intent();
         intent.setType("image/*");

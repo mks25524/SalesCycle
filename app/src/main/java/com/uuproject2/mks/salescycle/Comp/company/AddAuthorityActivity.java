@@ -1,8 +1,11 @@
 package com.uuproject2.mks.salescycle.Comp.company;
 
+import android.content.Intent;
 import android.graphics.Color;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -36,6 +39,9 @@ public class AddAuthorityActivity extends AppCompatActivity {
         etCatagory= (AutoCompleteTextView) findViewById(R.id.etAuthorityCatagory);
         name= (EditText) findViewById(R.id.nameAuthority);
         btAdd= (Button) findViewById(R.id.btAddAtuthority);
+        //for back button
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
 
         ArrayAdapter<String>adapter=new ArrayAdapter<String>(this,android.R.layout.select_dialog_item,catagorys);
@@ -84,6 +90,12 @@ public class AddAuthorityActivity extends AppCompatActivity {
         });
 
 
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent=new Intent(getApplicationContext(),ProfileActivityCompany.class);
+        startActivityForResult(intent,0);
+        return true;
     }
 //   public   void addAuthority(){
 //       progressBar.setVisibility(View.VISIBLE);

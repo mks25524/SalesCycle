@@ -12,6 +12,7 @@ import android.net.Uri;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.LocalBroadcastManager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,6 +25,8 @@ import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.uuproject2.mks.salescycle.Comp.company.ProfileActivityCompany;
+import com.uuproject2.mks.salescycle.Comp.deleverman.ProfileDelevermanActivity;
 import com.uuproject2.mks.salescycle.LocationService;
 import com.uuproject2.mks.salescycle.R;
 
@@ -59,6 +62,8 @@ public class RealLocationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_real_location);
         // Current Permission Status
         permissionStatus = getSharedPreferences("permissionStatus", MODE_PRIVATE);
+        //back button
+
 
         if (ActivityCompat.checkSelfPermission(RealLocationActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(RealLocationActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)) {
@@ -119,6 +124,7 @@ public class RealLocationActivity extends AppCompatActivity {
             proceedAfterPermission();
         }
     }
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
@@ -238,6 +244,8 @@ public class RealLocationActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+
+
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {

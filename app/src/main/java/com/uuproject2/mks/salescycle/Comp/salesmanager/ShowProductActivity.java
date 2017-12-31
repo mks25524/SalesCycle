@@ -1,6 +1,8 @@
 package com.uuproject2.mks.salescycle.Comp.salesmanager;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +10,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,6 +23,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.uuproject2.mks.salescycle.Comp.company.ProfileActivityCompany;
 import com.uuproject2.mks.salescycle.R;
 
 import java.util.ArrayList;
@@ -50,6 +54,8 @@ public class ShowProductActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
 
 
         progressDialog = new ProgressDialog(this);
@@ -92,6 +98,7 @@ public class ShowProductActivity extends AppCompatActivity {
                 });
 
             }
+
 
             @Override
             public void onLongClick(View view, final int position) {
@@ -174,7 +181,10 @@ public class ShowProductActivity extends AppCompatActivity {
         });
 
     }
-//    private void showProductDetails(){
+
+
+
+    //    private void showProductDetails(){
 //        AlertDialog.Builder builder=new AlertDialog.Builder(this);
 //        LayoutInflater layoutInflater=getLayoutInflater();
 //        final View dialogView=layoutInflater.inflate(R.layout.product_description,null);

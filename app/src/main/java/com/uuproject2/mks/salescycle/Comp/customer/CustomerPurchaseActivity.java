@@ -3,9 +3,11 @@ package com.uuproject2.mks.salescycle.Comp.customer;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -16,6 +18,7 @@ import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.uuproject2.mks.salescycle.Comp.company.ProfileActivityCompany;
 import com.uuproject2.mks.salescycle.Comp.salesman.InitialSalesCreate;
 import com.uuproject2.mks.salescycle.Comp.salesman.ShowSalesManProductForSale;
 import com.uuproject2.mks.salescycle.R;
@@ -38,6 +41,7 @@ public class CustomerPurchaseActivity extends AppCompatActivity {
         setDate= (Button) findViewById(R.id.btSetDate);
         picker= (DatePicker) findViewById(R.id.datePicker1);
         imProduct= (ImageView) findViewById(R.id.imProductSale);
+
        // etCustomerId= (EditText) findViewById(R.id.etSalesCustomerId);
         imProduct.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +58,7 @@ public class CustomerPurchaseActivity extends AppCompatActivity {
             }
         });
     }
+
     public String getCurrentDate(){
         StringBuilder builder=new StringBuilder();
         builder.append((picker.getDayOfMonth()+"-"));

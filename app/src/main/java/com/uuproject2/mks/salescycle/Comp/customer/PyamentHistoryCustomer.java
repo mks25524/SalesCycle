@@ -1,12 +1,15 @@
 package com.uuproject2.mks.salescycle.Comp.customer;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -17,6 +20,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.uuproject2.mks.salescycle.Comp.company.ProfileActivityCompany;
 import com.uuproject2.mks.salescycle.Comp.model.NewSalesModel;
 import com.uuproject2.mks.salescycle.Comp.model.SalesHistoryAdapterForManager;
 import com.uuproject2.mks.salescycle.Comp.salesmanager.Customer;
@@ -57,6 +61,7 @@ public class PyamentHistoryCustomer extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recyclerViewCustomerPaymentHistory);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this)); progressDialog = new ProgressDialog(this);
+
         recyclerView.addOnItemTouchListener(new RecyclerViewTouchListener(getApplicationContext(), recyclerView, new RecyclerViewClickListener() {
             @Override
             public void onClick(View view, int position) {
@@ -129,4 +134,5 @@ public class PyamentHistoryCustomer extends AppCompatActivity {
         mDatabase1.addListenerForSingleValueEvent(valueEventListener);
 
     }
+
 }

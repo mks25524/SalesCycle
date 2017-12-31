@@ -9,9 +9,11 @@ import android.icu.util.Calendar;
 import android.os.Build;
 import android.preference.PreferenceManager;
 import android.support.annotation.RequiresApi;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -22,6 +24,7 @@ import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.uuproject2.mks.salescycle.Comp.company.ProfileActivityCompany;
 import com.uuproject2.mks.salescycle.Comp.salesmanager.ShowProductActivity;
 import com.uuproject2.mks.salescycle.R;
 
@@ -46,6 +49,7 @@ public class SalesBySalesManActivitiy extends AppCompatActivity {
         picker= (DatePicker) findViewById(R.id.datePicker1);
         imProduct= (ImageView) findViewById(R.id.imProductSale);
         etCustomerId= (EditText) findViewById(R.id.etSalesCustomerId);
+
         imProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,6 +65,7 @@ public class SalesBySalesManActivitiy extends AppCompatActivity {
           }
       });
    }
+
    public String getCurrentDate(){
        StringBuilder builder=new StringBuilder();
       builder.append((picker.getDayOfMonth()+"-"));
