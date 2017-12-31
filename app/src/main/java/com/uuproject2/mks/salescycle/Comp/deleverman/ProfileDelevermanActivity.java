@@ -28,8 +28,8 @@ import java.util.List;
 
 public class ProfileDelevermanActivity extends AppCompatActivity implements View.OnClickListener {
     ImageView imLogout,imDelever,location;
-    private List<CoordinatesModel> uploads;
-    DatabaseReference mDatabase;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
